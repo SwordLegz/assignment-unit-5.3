@@ -1,66 +1,76 @@
 console.log('***** Music Collection *****')
 // Safe Zone -- Write code below this line
 
-// Create `myCollection` array initialized as an empty array
+// 1. Create `myCollection` array initialized as an empty array
 
-const myCollection = [];
-console.log(myCollection);
+let myCollection = [];
+console.log(myCollection,);
 
 //// DONE ////
 
-// Push record object into `addToCollection` & returns the object
+// 2. Push record object into `addToCollection` & returns the object
 
 // myCollection.addToCollection = 'Smash Mouth';
 
-function addToCollection() {
-  myCollection.push({
-    artist: `Smash Mouth`,
-    album: `Astro Lounge`,
-    bestSong: `All Star`,
-  //  }
-  //  {
-  //   artist: `Aaron Carter`,
-  //   album: `Aaron's Party`,
-  //   bestSong: 'Girl You Shine'
-  //   }
-    // {
-    //   artist: `Def Leppard`,
-    //   album: `Hysteria`,
-    //   bestSong: `Animal`
-    //  }
-    //  {
-    //   artist: `Man With A Mission`,
-    //   album: `Chasing the Horizon`,
-    //   bestSong: `Hey Now`
-    //   }
-    //   {
-    //     artist: `Kishi Bashi`,
-    //     album: `Sonderlust`,
-    //     bestSong: `m'Lover`
-    //    }
-    //    {
-    //     artist: `Newsboys`,
-    //     album: `Love Liberty Disco`,
-    //     bestSong: `Beautiful Sound`
-});
-  // return addToCollection
-  console.log('Added items to my collection:', myCollection)
-};
-// console.log(myCollection);
-
-// Test `addToCollection` by adding at least 6 albums & logged results
+function addToCollection(collection, title, artist, yearPublished) {
+  let albumToAddToCollection = {
+    artist: artist,
+    title: title,
+    yearPublished: yearPublished
+   }
+  collection.push(albumToAddToCollection)
+  return albumToAddToCollection
+  }
+  console.log(`Before function call`, myCollection);
+  addToCollection(myCollection, `Astro Lounge`, `Smash Mouth`, 1999)
+  console.log(`After function call`, myCollection);
+  addToCollection(myCollection, `Aaron's Party (Come Get It)`, `Aaron Carter`, 2000)
+  console.log(myCollection);
+  addToCollection(myCollection, `Hysteria`, `Def Leppard`, 1987)
+  console.log(myCollection);
+  addToCollection(myCollection, `Chasing the Horizon`, `Man With a Mission`, 2018)
+  console.log(myCollection);
+  console.log(myCollection);
+  addToCollection(myCollection, `Sonderlust`, `Kishi Bashi`, 2016)
+  console.log(myCollection);
+  addToCollection(myCollection, `Love Liberty Disco`, `Newsboys`, 1999)
+  console.log(myCollection);
 
 
+// 3. Test `addToCollection` by adding at least 6 albums & logged results
 
-// `showCollection` takes in an array, loops over it, correctly logs each item
+function showCollection(collection) {
+  for(let item of collection) {
+    console.log(`${item.title} by ${item.artist} published in ${item.yearPublished}`);
+  }
+}
+showCollection(myCollection);
+
+
+// 4. `showCollection` takes in an array, loops over it, correctly logs each item
+
+function findByArtist(collectionOfInformation, artist)  {
+  let artistResults = [];
+  for(let item of collectionOfInformation) {
+    if (item.artist === artist) {
+      artistResults.push(item)
+    }
+    // console.log(`${item.title} by ${item.artist} published in ${item.yearPublished}`);
+
+  }
+  return artistResults
+}
+console.log(findByArtist(myCollection, `Smash Mouth`));
+console.log(findByArtist(myCollection, `Backstreet Boys`));
+
+// myCollection.showCollection(myCollection => console.log(myCollection.artist));
+// console.log(this.showCollection);
+
+// 5. `findByArtist` takes in a collection and artist, then returns an array of matching albums
 
 
 
-// `findByArtist` takes in a collection and artist, then returns an array of matching albums
-
-
-
-// STRETCH: `search` takes in a criteria object and returns an array of matching albums
+// 6. STRETCH: `search` takes in a criteria object and returns an array of matching albums
 
 
 
